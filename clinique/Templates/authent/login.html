@@ -1,0 +1,54 @@
+{% extends 'authent/secure.html' %}
+
+{% block 'auth' %}
+   
+ <!-- inscription Start -->
+ <div class="container-fluid bg-primary my-5 py-5">
+   <div class="container py-5">
+       <div class="row gx-5">
+           <div class="col-lg-6 mb-5 mb-lg-0">
+               <div class="mb-4">
+                   <h1 class="d-inline-block text-white text-uppercase border-bottom border-5">Connexion</h1>
+                   
+               </div>
+               <p class="text-white mb-5">Aujourd'hui, il est plus important que jamais de protéger l'ensemble des informations
+                   de votre compte. c'est pourquoi nous avons intégré des systemes de protections et des outils
+                   efficaces, commele Check-up Sécurité et le Gestionnaire de mots de passe de Google, à tous les comptes.
+               </p>
+               <a class="btn btn-dark rounded-pill py-3 px-5 me-3" href="">Bienvenus sur MEDINOVA CLINIQUE</a>
+           </div>
+           <div class="col-lg-6">
+               <div class="bg-white text-center rounded p-5">
+                  <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Login</h1>
+                  
+
+                   <form action="" method="POST">
+                     {% csrf_token %}
+                       <div class="row g-3">
+                           
+                           <div class="col-12 ">
+                               <input type="text" class="form-control bg-light border-0" name="username" placeholder="Your Name" style="height: 55px;">
+                           </div>
+
+                           <div class="col-12 ">
+                              <input type="password" class="form-control bg-light border-0" name="password" placeholder="your Password" style="height: 55px;">
+                          </div>
+                        
+                           </div> <br>
+                           <div class="col-12">
+                               <button class="btn btn-primary rounded-pill py-3 px-3 me-3" type="submit">Se connecter</button>
+
+                       <a class="btn btn-primary rounded-pill py-3 px-3 me-3" href="{%url 'urlregister'%}">Créer un compte</a> <br><br>
+                       <a class="btn btn-primary rounded-pill py-3 px-3 me-3" href="{%url 'urlmail'%}">Mot de passe oublier</a>
+
+                           </div> <br>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- inscription End -->
+
+{% endblock 'auth' %}

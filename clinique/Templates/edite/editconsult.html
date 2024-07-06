@@ -1,0 +1,128 @@
+{% extends 'pages/base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    .card{
+        width: 230px;
+        height: 100px;
+    }
+    .symbol{
+        height: 100px;
+    }
+    li{
+        color: rgb(12, 1, 56);
+        margin-top: 10px;
+    }
+    #images{
+        margin-left: 50px;
+        border-radius: 5px;
+    }
+    #lu{
+        border: 1px solid rgb(209, 208, 208);
+        border-radius: 15px;
+        margin-top: -10px;
+
+    }
+
+</style>
+<section class="wrapper">
+    <!--state overview start-->
+    <div class="row state-overview">
+        <div class="col-lg-3 col-sm-6">
+            <a href="{% url 'urlallconsultation' %}">
+                <section class="card">
+                    <div class="symbol terques">
+                        <i class="zmdi zmdi-open-in-new"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class="count">
+                            0
+                        </h1>
+                        <p> Consultations </p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="{% url 'urlhospitalise' %}">
+                <section class="card">
+                    <div class="symbol red">
+                        <i class="zmdi zmdi-layers"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count2">
+                            0
+                        </h1>
+                        <p>Hospitalisation </p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="{% url 'urlexamen' %}">
+                <section class="card">
+                    <div class="symbol yellow">
+                        <i class="zmdi zmdi-window-restore"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count3">
+                            0
+                        </h1>
+                        <p>Laboratoire</p>
+                    </div>
+                </section>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <a href="">
+                <section class="card">
+                    <div class="symbol blue">
+                        <i class="zmdi zmdi-folder-star-alt"></i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count4">
+                            0
+                        </h1>
+                        <p>Caisse  </p>
+                    </div>
+                </section>
+            </a>
+        </div>
+    </div>
+    <!--state overview end-->
+</section>
+<hr>
+<div class="contenair">
+    <div class="row">
+        <div class="col col-sm-7">
+            <img src="{% static 'images/10.png' %}" width="500px" height="430px" alt="" id="images">
+        </div>
+        <div class="col col-sm-5" id="lu">
+            <p></p>
+            <a href="{% url 'upconsultations' data.pk %}" class="btn btn-warning"><i class="fas fa-edit">Update</i></a>
+            <a href="{% url 'examenurl' data.secrete_key %}" class="btn btn-primary">Laboratoire</a>
+            <a href="{% url 'addpatients' data.secrete_key %}" class="btn btn-primary">Hospitalisation</a>
+
+            <lu>
+                <b>
+                    <li>Nom: {{data.nom}}</li>
+                    <li>Prénom: {{data.prenom}}</li>
+                    <li>Poids: {{data.poids}}</li>
+                    <li>Age: {{data.age}}</li>
+                    <li>Sexe: {{data.sexe}}</li>
+                    <li>Téléphone: {{data.telephone}}</li>
+                    <li>Avis Médecin: {{data.avis_medecin}}</li>
+                    <li>Examens: {{data.examen}}</li>
+                    <li>Service: {{data.sevice}}</li>
+                    <li>Date Consultation: {{data.date_consultation}}</li>
+                </b>
+            </lu>
+            <p></p>
+
+
+        </div>
+
+    </div>
+</div>
+<p></p>
+{% endblock %}

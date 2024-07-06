@@ -1,0 +1,124 @@
+{% extends 'pages/base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    .h1{
+        margin-top: 30px;
+        text-align: center;
+        height: 300px;
+        background-image: url("{%static 'images/4.png'%}") ;
+        padding-top: 100px;
+        color: blue;
+    }
+    table{
+        width: 100%;
+        margin-top: 5px;
+        text-align: center;
+    }
+    #ajout{
+        margin-top: 30px;
+    }
+    #btn{
+        width: 30%;
+        background-color: green;
+    }
+    #ajouter{
+        background-color: blue;
+        border-radius: 5px;
+    }
+</style>
+<style>
+    #myinput {
+        background-image: url('/css/searchincon.png');
+        background-position: 10px 12px;
+        background-repeat: on-repeat;
+        width: 100%;
+        font-size: 10px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+    #myTable th,
+    #myTable td {
+        text-align: left;
+        padding: 12px;
+    }
+
+    #myTable tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    #myTable tr.header,
+    #myTable tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+<br>
+<div class="h1">
+    <h1>Industrie Team Plus Clinique</h1>
+    <h3 class="">Laboratoire </h3>
+</div>
+<input type="text" id="myinput" onkeyup="myfunction()" placeholder="Search for carte grise">
+<table id="myTable" class="table" border="1">
+    <a href="{% url 'urldemandeexamen'%}" id="ajouter" class="btn btn-primary">Ajouter</a>
+    <thead class="table table-dark">
+        <tr id="header" class="hover">
+            <th class="th">Nom</th>
+            <th class="th">Prénom</th>
+            <th class="th">Sexe</th>
+            <th class="th">Age</th>
+            <th class="th">Examen</th>
+            <th class="th">Actions</th>
+        </tr>
+    </thead>
+    
+    {% for i in data %}
+      <tr>
+        <td><a href="{% url 'editeexamensurl' i.secrete_key %}"> {{ i.nom }}</a></td>
+        <td>{{ i.prenom }}</td>
+        <td>{{ i.sexe }}</td>
+        <td>{{ i.age }}</td>
+        <td>{{ i.examen }}</td>
+        <td>
+            <a href="{% url 'updateexamenurl' i.secrete_key %}" class="btn btn-warning"><i class="fas fa-edit">Update</i></a>
+        </td>
+      </tr>
+      {% endfor %}
+</table>
+<p></p>
+<script>
+    //declaration de la fonction de recherche
+    function myfunction() {
+        //déclaration des variables à manipuler 
+        //l'input de la recherche
+        //
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myinput");
+        table = document.getElementById("myTable");
+        filter = input.value.toUpperCase();
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];//pour la colonne nom
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                }
+                else {
+                    tr[i].style.display = "none";
+                }
+            }
+
+        }
+    }
+</script>
+{% endblock %}

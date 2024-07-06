@@ -1,0 +1,95 @@
+{% extends 'pages/base.html' %}
+{%load static %}
+{% block 'corps' %}
+<style>
+    .h1{
+        margin-top: 30px;
+        text-align: center;
+        height: 280px;
+        background-image: url("{%static 'images/3.jpg'%}");
+        padding-top: 60px;
+        color: blue;
+    }
+    table{
+        width: 100%;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #ajout{
+        margin-top: 30px;
+    }
+    #btn{
+        width: 30%;
+        background-color: green;
+    }
+</style>
+<br>
+<div class="h1">
+    <h1>Industrie Team Plus Clinique</h1>
+    <h3 class="">Personnel </h3>
+</div>
+<hr>
+<div class="contenair">
+    <div class="row">
+        <div class="col-lg-5 col-sm-5" id="ajout">
+            <section class="card" id="form">
+                <header class="card-header">
+                    <h1 class="text-center">ADD Personnel</h1>
+                </header>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="prof">nom </label>
+                            <input type="text" name="nom" class="form-control" id="prof" aria-describedby="prof"
+                                placeholder="Enter nom ">
+                        </div>
+                        <div class="form-group">
+                            <label for="prof">prenom  </label>
+                            <input type="text" name="prenom" class="form-control" id="prof" aria-describedby="prof"
+                                placeholder="Enter prenom  ">
+                        </div>
+                        <div class="form-group">
+                            <label for="prof">fonction  </label>
+                            <input type="text" name="fonction" class="form-control" id="prof" aria-describedby="prof"
+                                placeholder="Enter fonction  ">
+                        </div>
+                        <div class="form-group">
+                            <label for="prof">telephone  </label>
+                            <input type="text" name="telephone" class="form-control" id="prof" aria-describedby="prof"
+                                placeholder="Enter telephone  ">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btn" class="btn btn-success"  aria-describedby="date" value="Enregistrer">
+                        </div>
+                    </form>
+        
+                </div>
+            </section>
+        </div>
+        <div class="col col-sm-7">
+            <table border="1">
+                <thead class="table table-dark">
+                    <tr>
+                        <th>Nom </th>
+                        <th>Prénom</th>
+                        <th>Fonction</th>
+                        <th>Téléphone</th>
+                    </tr>
+                </thead>
+                
+                {% for i in data %}
+                  <tr>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.prenom }}</td>
+                    <td>{{ i.fonction }}</td>
+                    <td>{{ i.telephone }}</td>
+                    
+                  </tr>
+                  {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<p></p>
+{% endblock %}

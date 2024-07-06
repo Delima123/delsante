@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.min.css">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="{% static 'css/favicon.html' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
+    <title>
+        {% block 'title' %}
+       
+        {% endblock %}
+    </title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-reset.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/jquery.easy-pie-chart.css' %}" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
+    <link href="{% static 'css/slidebars.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet" />
+    <style>
+        img{
+            margin-top: -10px;
+        }
+        .logo{
+            border-radius: 50%;
+        }
+    </style>
+    </head>
+<body class="light-sidebar-nav">
+    <section id="container">
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <i class="zmdi zmdi-menu"></i>
+            </div>
+            <a href="{% url 'accueil' %}" class="logo">ITP<span> cli</span></a>
+            <div class="nav notify-row" id="top_menu">
+                <a href="{% url 'accueil' %}">
+                <img src="{% static 'images/logo1.png'%}" width="60px" class="logo" alt="">
+                </a>
+            </div>
+            <div class="top-nav ">
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a class="active" href="{% url 'accueil' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestions</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'generale' %}">
+                            <i class="zmdi zmdi-open-in-new"></i>
+                            <span>Consultation Générale</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'specialite' %}">
+                            <i class="zmdi zmdi-layers"></i>
+                            <span>Consultation de Spécialité</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'urlhospitalise' %}">
+                            <i class="zmdi zmdi-window-restore"></i>
+                            <span>Gestion Hospitalisation</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'urlexamen' %}">
+                            <i class="zmdi zmdi-format-ltr"></i>
+                            <span>Gestion Laboratoire</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'stocks' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestion Stock</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'vente' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestion Vente</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'services' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestion Services</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'salle' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestion Salle</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="{% url 'personnels' %}">
+                            <i class="zmdi zmdi-folder-star-alt"></i>
+                            <span>Gestion Personnel</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <section id="main-content">
+        {% block 'corps' %}
+
+        {% endblock %}
+        </section>
+        <footer class="site-footer">
+            <div class="text-center">
+                2023 &copy; Clinique Industrie Team Plus @ tout droit reservé.
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+    </section>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script class="include" type="text/javascript" src="{% static 'js/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.sparkline.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.easy-pie-chart.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/jquery.customSelect.min.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <script src="{% static 'js/slidebars.min.js' %}"></script>
+    <script src="{% static 'js/common-scripts.js' %}"></script>
+    <script src="{% static 'js/sparkline-chart.js' %}"></script>
+    <script src="{% static 'js/easy-pie-chart.js' %}"></script>
+    <script src="{% static 'js/count.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
+            });
+        });
+        $(function () {
+            $('select.styled').customSelect();
+        });
+        $(window).on("resize", function () {
+            var owl = $("#owl-demo").data("owlCarousel");
+            owl.reinit();
+        });
+    </script>
+        <script src="{% static 'js/sweetalert.min.js'%}"></script>
+        <script>
+          {% for msg in messages %}
+            swal("Notification", "{{msg}}", "{{msg.tags}}")
+          {% endfor %}
+        </script>
+</body>
+</html>
